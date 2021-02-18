@@ -60,3 +60,59 @@ for(let key in programming){
     console.log(key, [key])
 }
 //console.log(programming)
+
+/*Write a function named tellFortune that takes 4 arguments: 
+number of children, partner's name, geographic location, job title. 
+Outputs your fortune to the screen like so: "You will be a X in Y , 
+and married to Z with N kids. Call that function 3 times with 3 different values for the arguments.
+*/
+function tellFortune(children, partner, geoLocation, jobTitle){
+    return console.log("you will be ", jobTitle, "in ", geoLocation, " and married to ", partner, " with ", 
+    children, " kids.")
+}
+
+tellFortune(2, 'Zaid', 'Islamabad', 'MD')
+tellFortune(4, 'Aisha', 'Chicgo', 'PM')
+tellFortune(1, 'Bob', 'LA', 'Housewife')
+
+ /*Write a function named calculateDogAge that takes 1 argument: your puppy's age. 
+ Calculates your dog's age based on the conversion rate of 1 human year to 7 dog years. 
+ Outputs the result to the screen like so: "Your doggie is NN years old in dog years! 
+ Call the function three times with different sets of values.
+
+Bonus: Add an additional argument to the function that takes the conversion rate of human to dog years.
+*/
+function calculateDogAge(Age, dogYear){
+    let dogAge = Age*dogYear
+    return console.log("Your doggie is ", dogAge, ' years old in dog years!')
+}
+calculateDogAge(5,7)
+
+/*Create a function called calcCircumfrence. 
+Pass the radius to the function. 
+Calculate the circumference based on the radius, and 
+output "The circumference is NN". 
+Create a function called calcarean. Pass the radius to the function. 
+Calculate the area based on the radius, and output "The area is NN".
+*/
+
+function calcCircumfrence(radius){
+    let circumference = radius*2*3.14
+    let area = (radius*radius)*3.14
+    return console.log("The circumference is ", circumference, ". And area is ", area)
+}
+
+calcCircumfrence(2.5)
+
+/*Create a function called celsiusToFahrenheit:
+
+Store a celsius temperature into a variable.
+
+Convert it to fahrenheit and output "NN°C is NN°F".
+
+*/
+function celsiusToFahrenheit(celsius){
+    let fahrenheit = ((celsius * 9)/5) +32
+    return console.log(celsius,"°C is ", fahrenheit, "°F")
+}
+celsiusToFahrenheit(-40)

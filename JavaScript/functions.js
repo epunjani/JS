@@ -77,3 +77,7 @@ let stringsOnly = mix.filter(val => typeof(val) == 'string' )
 console.log(stringsOnly)
 
 
+
+
+
+
