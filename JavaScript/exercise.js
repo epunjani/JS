@@ -116,3 +116,67 @@ function celsiusToFahrenheit(celsius){
     return console.log(celsius,"°C is ", fahrenheit, "°F")
 }
 celsiusToFahrenheit(-40)
+
+
+/*You are clearing up your mailbox from Spam messages that can contain possible virus. Write a function virusInfected () that takes array of messages as parameter. Use a forEach loop to iterate the array and delete infected values. 
+
+You can start with the following view of your inbox:
+
+let spam = [ {messageBody: "Sucscribe to our newsletter", virus:true},
+            {messageBody:"Lose weight fast", virus:false},
+            {messageBody:"Fantastic scam, just click here", virus:true},
+            {messageBody:"your computer has a virus. Fix it with us!!", virus:true}
+    ]
+*/
+let spam = [ {messageBody: "Sucscribe to our newsletter", virus:true},
+            {messageBody:"Lose weight fast", virus:false},
+            {messageBody:"Fantastic scam, just click here", virus:true},
+            {messageBody:"your computer has a virus. Fix it with us!!", virus:true}
+    ]
+function virusInfected(array){
+    array.forEach((key) => {
+        if (key.virus)
+          array.splice(key.virus, 1)
+  console.log(key.virus)
+    }
+);
+}
+virusInfected(spam)
+console.log(spam)
+
+
+/*You visit a showroom of cars and want to go over their price range blocks. 
+Write a program that extracts the array of prices from data set of cars.
+
+You can start with the following:
+
+let cars = [ {model: “Honda civic", color: “navy blue”, price: “cheap”},
+	{model: “Tesla", color: “navy blue”, price: “expensive”},
+]
+*/
+let cars = [ {model: 'Honda civic', color: 'navy blue', price: 'cheap'},
+	{model: 'Tesla', color: 'navy blue', price: 'expensive'},
+]
+
+let autoPrice = cars.map (key => {
+    return key.price; 
+}
+)
+console.log(autoPrice)
+
+/*Write an array of officers. Each officer has an id, name and rank. 
+You want to pass the IDs to other department to generate notifications. 
+Write a program to extract only ids from officer array.
+*/
+
+let officers = [
+    {id: 101, name: "John Blake", rank: "Detective"},
+    {id: 102, name: "Bob Hunter", rank: "Inspector"},
+    {id: 103, name: "Judy Smith", rank: "ODetective"}
+]
+
+let id = officers.map (key => {
+    return key.id;
+})
+
+console.log(id)
