@@ -321,6 +321,60 @@ console.log('frequency ', frequency(q,1))
 console.log('dynamicArray ', frequency(dynamicArry,false))
 
 
+/*FIND - only pick first occurance*/
+var users = [
+    {id: 101, name: 'Alex'},
+    {id: 102, name: 'Bill'},
+    {id: 103, name: 'Alex'},
+]
+
+let foundUser = users.find(el => el.name === 'Alex')
+// for (let i=0; i<users.length; i++){
+//     if(users[i].name ==='Alex')
+//     foundUser = users[i];
+// }
+
+console.log(foundUser);
+
+//1. write constructor function Car
+//2. we will find car of a specific model
+
+function Car(model, year){
+    this.model = model;
+    this.year = year;
+}
+
+let cars = [
+    new Car('Tesla', 2021),
+    new Car('honda civic', 1998),
+    new Car('toyota corolla', 2016),
+    new Car('Tesla', 2020),
+    new Car('gmc', 1990)
+]
+const myTesla = cars.find(car => car.model =='Tesla') // if need all Tesla then use filter
+console.log(myTesla)
+
+//varmyCar = new Car ('Tesla')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
