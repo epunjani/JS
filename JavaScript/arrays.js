@@ -432,13 +432,41 @@ else {
     console.log('kindly complete all fields')
 }
 
+let primaryColors = [
+    {color: 'red'},
+    {color: 'blue'},
+    {color: 'orange'},
+    {color: 'green'},
+]
 
+// change into [red, green, blur, orange]
 
+let compiled = primaryColors.reduce((mem, primaryColor) =>{
+    mem.push(primaryColor.color)
 
+    return mem
+}, [] )
 
+console.log(compiled);
 
+/*
+    "()()()" valid
+    "()())" invalid
+    "((()))" valid
+    ")(" invalid
+*/
 
+function balancedParaens(string){
+    let array = string.split('')
+    return !array.reduce((accumulator, char) => {
+        if(accumulator < 0) return accumulator
+        if(char === '(') {return ++accumulator}
+        if(char === ')') {return --accumulator}
+        return accumulator;
+    }, 0)
+}
 
+console.log(balancedParaens('(()()())'))
 
 
 
