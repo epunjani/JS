@@ -321,6 +321,139 @@ console.log('frequency ', frequency(q,1))
 console.log('dynamicArray ', frequency(dynamicArry,false))
 
 
+/*FIND - only pick first occurance*/
+var users = [
+    {id: 101, name: 'Alex'},
+    {id: 102, name: 'Bill'},
+    {id: 103, name: 'Alex'},
+]
+
+let foundUser = users.find(el => el.name === 'Alex')
+// for (let i=0; i<users.length; i++){
+//     if(users[i].name ==='Alex')
+//     foundUser = users[i];
+// }
+
+console.log(foundUser);
+
+//1. write constructor function Car
+//2. we will find car of a specific model
+
+function Car(model, year){
+    this.model = model;
+    this.year = year;
+}
+
+let cars = [
+    new Car('Tesla', 2021),
+    new Car('honda civic', 1998),
+    new Car('toyota corolla', 2016),
+    new Car('Tesla', 2020),
+    new Car('gmc', 1990)
+]
+const myTesla = cars.find(car => car.model =='Tesla') // if need all Tesla then use filter
+console.log(myTesla)
+
+//varmyCar = new Car ('Tesla')
+
+/* EVERY AND SOME HELPER  - return one single BOOLEAN value */
+
+var computers = [
+    {model: 'apple', ram: 32}, //true
+    {model: 'hp', ram: 20}, //true
+    {model: 'acer', ram: 4}, //false
+    {model: 'dell', ram: 64}, //true
+]
+//Whether or not all my computers can run a software that equires 16gb ram
+
+var allCanRun = true;
+var onlySomeCanRun = false;
+
+for (var i=0; i<computers.length; i++){
+    var computer = computers[i];
+
+    if(computer.ram<16)
+        allCanRun= false;
+    else
+        onlySomeCanRun = true;
+}
+
+console.log('all can run: ', allCanRun)
+console.log('some can run: ', onlySomeCanRun)
+
+// above code can replace with EVERY helper
+
+let result = computers.every(computer => computer.ram > 16)
+console.log('all can run: ', result)
+
+let result1 = computers.some(computer => computer.ram > 16)
+console.log('all can run: ', result1)
+
+/* Write an array “names” that contains strings. For this array, 
+check whether or not all of the names have length greater than 4.
+*/
+
+var names = ['asif', 'haroon', 'amjad', 'Aby'];
+let shortName = names.every(name => name.length > 4)
+console.log('name with less than 4 character: ', shortName)
+
+let shortName1 = names.some(name => name.length > 4)
+console.log('name with less than 4 character: ', shortName1)
+
+//Signup field validator
+function Fields(value){
+    this.value = value;
+}
+
+var username    = new Fields('shakarqandee');
+var password    = new Fields('passworld123');
+var birthday    = new Fields('1-1-1999');
+var city        = new Fields('Karachi');
+var country     = new Fields("Pakistan");
+
+console.log(username, password)
+
+Fields.prototype.validate = function(){
+    return this.value.length > 0;
+}
+
+// let valid = username.validate() && password.validate();
+// console.log('Valid User: ', valid)
+
+let fields = [username, password, birthday, city, country];
+
+let valid1 = fields.every(field => field.validate());
+console.log('Valid1 User ', valid1)
+
+if(valid1){
+    console.log('user is valid user. you may proceed to sign in');
+}
+else {
+    console.log('kindly complete all fields')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -180,3 +180,67 @@ let id = officers.map (key => {
 })
 
 console.log(id)
+
+/* You have a raw data set of all the inventory items on your store.
+   Your responsibility is to segregate them based on their "type" for the website sections 
+   such that your website has types:
+                 fruits containing all fruits
+                 accessories containing all accessories
+
+    (ADD MORE VALUES IN YOUR inventory OBJECT FOR RICH RESULTS)
+   */
+
+var inventory =[
+    {name:"orange", type:'fruit', qty: 200, price: 0.99},
+    {name:"chair", type:'furniture', qty: 24, price: 99},
+    {name:"cucumber", type:'vegetable', qty: 0, price: 0.50},
+    {name:"table", type:'furniture', qty: 4, price: 199},
+    {name:"necklace", type:'accessories', qty: 6, price: 49},
+    {name:"perfume", type:'accessories', qty: 10, price: 75},
+    {name:"mango", type:'fruit', qty: 40, price: 0.50},
+]
+
+const fruits = inventory.filter (val => val.type == 'fruit');
+console.log('Fruits: ' ,fruits)
+const accessories = inventory.filter(val => val.type == 'accessories')
+console.log('accessories: ' ,accessories)
+const vegetable = inventory.filter (val => val.type == 'vegetable');
+console.log('vegetable: ' ,vegetable)
+const furniture = inventory.filter(val => val.type == 'furniture')
+console.log('furniture: ' ,furniture)
+
+/* MAKE IT COMPLEX - add attributes "quantity" and price to each element in your inventory!!
+
+Now, make a function/arrow function that shows vegetables on website that are not sold out
+and the price range is less than 10 */
+
+const filtered = vegetable.filter (val => {
+    if(val.qty == 0 || val.price >=10)
+    return console.log('Sold Out or out of range.')
+    return val.qty > 0 && val.price <10;
+    
+}
+    );
+console.log(filtered)
+
+//write a function commentsForPost that finds out all the comments for a specific post
+
+let posts = {id: 4, title: "PSL"}
+
+let comments = [
+    {postid: 4, content: "PSL sucks"},
+    {postid: 4, content: 'Atif Aslam has forgotten how to sing'},
+    {postid: 5, content: "cool post"},
+    {postid: 4, content: "beta parhlo"}
+]
+
+function commentsForPost (post, comments){
+    return comments.filter (el => el.postid === post.id)
+}
+
+console.log(commentsForPost(posts, comments))
+
+
+
+
+
