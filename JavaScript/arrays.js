@@ -468,6 +468,60 @@ function balancedParaens(string){
 
 console.log(balancedParaens('(()()())'))
 
+//var, let, const
+
+const name = 'jane';
+let title = 'Software Engineer';
+let hourlyWage = '$4';
+
+// some time later
+title = "Project Lead";
+console.log(name, title)
+
+//=============================
+//escape characters'\' 
+// \n for new line
+const mes = 'this is \n my \'first\' program';
+console.log(mes);
+
+//template literals
+const name1 = 'Ali';
+const template = `Hello${name1}
+
+Thank you for joining us.
+
+Best regards,`;
+console.log(template);
+//===================
+
+/*
+Write a function getYear that uses built-in Date object to get the current year. 
+Print your output as “The year is 2020” using TEPLATE LITERALS
+
+(hint: Date object class function to get current year: getFullYear
+*/
+function getYear(){
+    let year = new Date().getFullYear()
+    return `The year is ${year}`
+}
+console.log(getYear())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
