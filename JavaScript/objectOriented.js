@@ -217,10 +217,10 @@ Square class has a function getArea - prints area of square
 */
 
 class Polygon{
-    constructor(PolyGon){
+    constructor(width, height){
         //this.name1 = name1
-        this.height = PolyGon.height
-        this.width = PolyGon.width
+        this.height = height
+        this.width = width
     }
     sayName(){
         return `Hey I am a polygon`
@@ -232,6 +232,138 @@ class Polygon{
 const myPolygon = new Polygon ({height: 4, width: 5})
 console.log(myPolygon.sayName())
 console.log(myPolygon.getDimentions())
+
+class Reactangle extends Polygon{
+    constructor (width, height){
+        super(width, height)
+        // this.width = ReactAngle.width
+        // this.height = ReactAngle.height
+    }
+    getArea(){
+        return `Area is ${this.height*this.width}.`
+    }
+}
+let myRA = new Reactangle (15, 22)
+console.log(myRA.getArea())
+
+/*Create a class Book that has properties of title and author. 
+Create two novel instances of this class and log the output on screen.
+Your class also have a function publicizeBook that prints statement 
+like “___ book was written by renowned author ____”.
+
+Call this function on both instance objects.
+*/
+
+class Book{
+    constructor (BooK) {
+        this.title = BooK.title
+        this.author = BooK.author
+    }
+    publicizeBook(){
+        return `${this.title} book was written by renowned author ${this.author}`
+    }
+}
+let novel1 = new Book ({title: 'Harry Potter', author: 'Me'})
+let novel2 = new Book ({title: 'Adv JS', author: 'You'})
+console.log(novel1.publicizeBook())
+console.log(novel2.publicizeBook())
+
+/*Create a class Animal that has property of name and a function speak.
+Speak function gives output “____ animal speaks”.
+Create a class Dog that extends Animal class and overrides speak function to give output “____ dog barks”.
+Instantiate from dog class to show overriding.
+
+Animal (parent)
+extends 1) dog & 2) lion
+*/
+
+class Animal {
+    constructor(name){
+        this.name = name
+    }
+    speak(){
+        console.log (`${this.name} animal speaks`)
+    }
+}
+let animal1 = new Animal ('Chikoo')
+animal1.speak()
+
+class Dog extends Animal{
+    constructor(name){
+        super(name)
+    }
+
+    speak(){
+        return `${this.name} dog barks`
+    }   
+}
+let dog = new Dog ('Hunter')
+console.log(dog.speak())
+
+class Lion extends Animal{
+    constructor(name){
+        super(name)
+
+    }
+    speak(){
+        super.speak(); //making a call to parent class's function
+        return `${this.name} roars`
+    }
+}
+
+let simba = new Lion('Simba')
+console.log(simba.speak())
+
+//inheritence in built-in classes
+
+class Queue extends Array{
+    enqueue(e){
+        super.push(e)
+    }
+
+    dequeue(){
+        super.shift() //just like shift in Arrys
+    }
+}
+
+let customer = new Queue();
+customer.enqueue('A') //[A]
+customer.enqueue('B') //[B]
+customer.enqueue('C') //[c]
+
+customer.dequeue(); //[B,C]
+console.log(customer)
+
+
+//getters and setters
+
+/* getters => access properties
+   setters => mutate/change properties */
+
+const employee = {
+    firstName: 'Qandeel',
+    lastName: 'Asif',
+
+    get fullName(){
+        return `${employee.firstName} ${employee.lastName}`
+    },
+
+    set fullName(value){
+        let parts = value.split(' ')
+        this.firstName = parts[0],
+        this.lastName = parts[1]
+    }
+}
+
+//console.log(parts)
+employee.fullName='ebrahim punjani'
+console.log(employee.fullName)
+console.log(employee.firstName)
+
+
+
+
+
 
 
 
