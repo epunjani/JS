@@ -327,11 +327,48 @@ class Queue extends Array{
 }
 
 let customer = new Queue();
-customer.enqueue('A')
-customer.enqueue('B')
-customer.enqueue('C')
+customer.enqueue('A') //[A]
+customer.enqueue('B') //[B]
+customer.enqueue('C') //[c]
 
-customer.dequeue();
+customer.dequeue(); //[B,C]
 console.log(customer)
+
+
+//getters and setters
+
+/* getters => access properties
+   setters => mutate/change properties */
+
+const employee = {
+    firstName: 'Qandeel',
+    lastName: 'Asif',
+
+    get fullName(){
+        return `${employee.firstName} ${employee.lastName}`
+    },
+
+    set fullName(value){
+        let parts = value.split(' ')
+        this.firstName = parts[0],
+        this.lastName = parts[1]
+    }
+}
+
+//console.log(parts)
+employee.fullName='ebrahim punjani'
+console.log(employee.fullName)
+console.log(employee.firstName)
+
+
+
+
+
+
+
+
+
+
+
 
 
