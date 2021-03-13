@@ -349,22 +349,35 @@ const employee = {
     },
 
     set fullName(value){
+        if (typeof value !== 'string') {
+            throw new Error(`${value} is not a valid name`)
+        };
+        
         let parts = value.split(' ')
+        console.log('parts', parts);
+        if (parts.length!==2 || parts[0].length ==='' || parts[1].length === '') {
+            throw new Error(`${value} should have first and last name`)
+        }
         this.firstName = parts[0],
         this.lastName = parts[1]
     }
 }
 
+try {
+    employee.fullName= 'javeria';  //replica of fullName('javeria') using setter
+} catch (error) {
+    alert(error)
+}
+
 //console.log(parts)
-employee.fullName='ebrahim punjani'
+//employee.fullName='ebrahim punjani'
 console.log(employee.fullName)
 console.log(employee.firstName)
 
 
-
-
-
-
+// dimensions (12, 17)  function call: parameters
+// function dimensions  (width, height) function defination: arguments
+//=========================================================
 
 
 
