@@ -22,3 +22,33 @@ let myPromise = new Promise((resolve, reject) => {
 
 // promise = new Promise().then.catch
 // https://329.45:4000/admin/access
+
+
+// promise().then.catch().finally()
+
+//Ajax request url - fetch().then()
+const url = "https://jsonplaceholder.typicode.com/posts";
+
+let postUrl=     'https://jsonplaceholder.typicode.com/posts'
+let commentsUrl=    'https://jsonplaceholder.typicode.com/comments'
+let albumUrl=   'https://jsonplaceholder.typicode.com/albums'
+let photosUrl=  'https://jsonplaceholder.typicode.com/photos'
+
+fetch(photosUrl)
+    .then(response => response.json())
+    .then(json => console.log(json))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
