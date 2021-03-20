@@ -38,12 +38,39 @@ fetch(photosUrl)
     .then(response => response.json())
     .then(json => console.log(json))
 
+//Example
 
+const isMomHappy = false; //act as action generator condition.  promise will generate based on this parameter
 
+const WillIGetNewPhone = new Promise((resolve,reject) =>{
+    if(isMomHappy){
+        const phone = {
+            brand: 'Samsung',
+            model: 'S10',
+            color: 'black'
+        }
 
+        resolve(phone)
+    }
+    else{
+        const reason = new Error ('mom is not happy')
+        reject(reason)
+    }
+});
 
+const showOff = function(phone){
+    const brag = `Hey, I got a new ${phone.color} ${phone.brand} ${phone.model}`
+    return Promise.resolve (brag)
+}
 
+const askMom = function(){    //linking different asynchronous functions to work together
+    WillIGetNewPhone
+    .then(showOff)
+    .then(fulfilled=>console.log(fulfilled))
+    .catch(err => console.log(err))
+}
 
+askMom();
 
 
 
