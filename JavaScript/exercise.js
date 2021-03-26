@@ -241,6 +241,96 @@ function commentsForPost (post, comments){
 console.log(commentsForPost(posts, comments))
 
 
+/* 
+1. a function displayUser that will make a call to fetchUser() to print all users from api
+2. a function fetchUserIds that will return an array of all userIds.  Output -> [0,1,2,3...10]
+3. fetchUserLocation that will return an array of objects, each object containing userId along with complete address object.
+*/
+//using promise
+fetch('https://jsonplaceholder.typicode.com/users')
+            .then(resp => resp.json())
+            .then(data=> console.log(data))
+
+
+//converted async-await
+
+async function fetchUsers() {
+    //wait for a promise
+try{
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    const data = await response.json()
+    return (data)
+} catch (error){
+    console.log(error)
+}
+
+}
+ async function displayUser() {
+     const fetchedUsers = await fetchUsers()
+     console.log('All User Data ', fetchedUsers)
+     return fetchedUsers
+ }
+async function createUser(user){
+    const allUser = await fetchUsers()
+    allUser.push(user)
+    console.log(allUser)
+}
+
+async function newUser(){
+    await createUser({id:1,name:"Leanne Graham",username:"Bret",email:"Sincere@april.biz",address:{street:"Kulas Light",suite:"Apt. 556",city:"Gwenborough",zipcode:"92998-3874",geo:{lat:"-37.3159",lng:"81.1496"}},phone:"1-770-736-8031 x56442",website:"hildegard.org",company:{name:"Romaguera-Crona",catchPhrase:"Multi-layered client-server neural-net",bs:"harness real-time e-markets"}})
+    
+}
+
+newUser();
+
+async function fetchUserIds(){
+     const Users = await fetchUsers()
+     let UserIds = Users.map(key => {
+         return key.id
+     })
+     console.log('User Ids ', UserIds)
+ }
+
+fetchUserIds()
+
+async function fetchUserLocation(){
+    const Users = await fetchUsers()
+    let userLocation = Users.map(key => {
+        return {id: key.id, address: key.address}
+    })
+    console.log('User Location ', userLocation) 
+    return userLocation
+}
+
+fetchUserLocation()
+
+/*Write a javascript code to convert coma-separated-values (CSV) to a 2D array
+HINT: A new line indicates a new row in the array
+
+example:
+abc,def,ghi = [[abc],[def],[ghi]
+stu,vww,xyz
+jkl,mno,pqr
+
+*/
+
+const data= '{"id": 1,"name": "Leanne Graham","username": "Bret","email": "Sincere@april.biz","phone": "1-770-736-8031 x56442","website": "hildegard.org"}'
+
+console.log(data)
+console.log(JSON.parse(data));
+
+const parseCSV = (csvString) => csvString.split('\n').map(row => row.split(','));
+
+const csv= 
+`abc,def,ghi
+ stu,vww,xyz
+ jkl,mno,pqr`
+
+let convertedJSarray = parseCSV(csv)
+
+console.log(convertedJSarray)
+
+
 
 
 
